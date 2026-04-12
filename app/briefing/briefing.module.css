@@ -1,0 +1,1064 @@
+.briefing {
+  width: min(1080px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 44px 0 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Skip link — visually hidden until focused, then pinned top-left.   */
+/* ------------------------------------------------------------------ */
+
+.skipLink {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.skipLink:focus,
+.skipLink:focus-visible {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  width: auto;
+  height: auto;
+  padding: 10px 18px;
+  background: var(--brand);
+  color: #ffffff;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 100;
+  box-shadow: var(--shadow);
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Header: thin utility bar + page headline + one-line affect sentence */
+/* ------------------------------------------------------------------ */
+
+.briefingHeader {
+  padding: 4px 2px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.utilityBar {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.utilityBarWhen {
+  margin-left: auto;
+  text-align: right;
+}
+
+.pageHeadline {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  max-width: 40ch;
+}
+
+/* ------------------------------------------------------------------ */
+/* At-a-glance strip                                                   */
+/*                                                                     */
+/* Small lookup block that sits between the affect line and the focus  */
+/* card. Gives a tutor who reads nothing else a complete-enough summary */
+/* of what to do, what to open with, what's solid, what to skip.       */
+/* ------------------------------------------------------------------ */
+
+.atAGlance {
+  margin: 0;
+  padding: 14px 18px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.atAGlanceLabel {
+  margin: 0 0 10px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.atAGlanceList {
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.atAGlanceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.atAGlanceKey {
+  margin: 0;
+  flex-shrink: 0;
+  width: 68px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.atAGlanceValue {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.atAGlanceHint {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+/* ------------------------------------------------------------------ */
+/* Cards                                                               */
+/* ------------------------------------------------------------------ */
+
+.cardHeading {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.focusCard,
+.subSkillMap,
+.transcriptDetails {
+  padding: 22px 24px;
+  border-radius: 22px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* ------------------------------------------------------------------ */
+/* Sub-skill map — collapsed summary by default                         */
+/* ------------------------------------------------------------------ */
+
+.subSkillMap > .subSkillMapSummary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.subSkillMap > .subSkillMapSummary::-webkit-details-marker {
+  display: none;
+}
+
+.subSkillMap > .subSkillMapSummary::before {
+  content: '▸';
+  color: var(--brand);
+  margin-right: 4px;
+  flex-shrink: 0;
+  transition: transform 0.15s;
+  display: inline-block;
+}
+
+.subSkillMap[open] > .subSkillMapSummary::before {
+  transform: rotate(90deg);
+}
+
+.subSkillMap > .subSkillMapSummary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.subSkillMapHeadingGroup {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex: 1 1 auto;
+}
+
+.subSkillMapHeading {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.2;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.subSkillMapCounts {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.subSkillMapHint {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.subSkillMapBody {
+  margin-top: 16px;
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* "More moves" is secondary context — the top three moves are inlined
+   on the focus card, so this card is collapsed by default but uses the
+   same visual chrome as the rest of the briefing. */
+.tutorMovesCard {
+  padding: 22px 24px;
+  border-radius: 22px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.tutorMovesCard > .tutorMovesSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tutorMovesCard > .tutorMovesSummary::-webkit-details-marker {
+  display: none;
+}
+
+.tutorMovesCard > .tutorMovesSummary::before {
+  content: '▸';
+  color: var(--brand);
+  margin-right: 4px;
+  flex-shrink: 0;
+  transition: transform 0.15s;
+  display: inline-block;
+}
+
+.tutorMovesCard[open] > .tutorMovesSummary::before {
+  transform: rotate(90deg);
+}
+
+.tutorMovesCard > .tutorMovesSummary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.tutorMovesHeading {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.2;
+  color: var(--text);
+  font-weight: 600;
+  flex: 1 1 auto;
+}
+
+.tutorMovesHint {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+/* ------------------------------------------------------------------ */
+/* Today's focus                                                       */
+/* ------------------------------------------------------------------ */
+
+.focusHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.focusSubSkillName {
+  margin: 6px 0 0;
+  font-size: 1.05rem;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.focusRationale {
+  /* .focusHeader now owns the spacing via margin-bottom + border-bottom,
+     so the rationale sits flush below the rule. */
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.55;
+  font-size: 0.96rem;
+}
+
+.focusEmpty {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.warmup {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.warmupLabel {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.warmupList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 900px) {
+  .warmupList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+.warmupItem {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 8px;
+}
+
+.warmupItemHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.warmupNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.warmupMinutes {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.warmupEmpty {
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.focusEvidence {
+  margin-top: 16px;
+  padding: 12px 14px 14px 16px;
+  border-radius: 14px;
+  background: var(--surface-muted);
+  border-left: 3px solid var(--brand);
+}
+
+.focusEvidenceList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.focusEvidenceItem {
+  display: grid;
+  gap: 6px;
+}
+
+.focusEvidenceItem + .focusEvidenceItem {
+  padding-top: 12px;
+  border-top: 1px dashed rgba(30, 91, 184, 0.28);
+}
+
+/* Flipped hierarchy: the tutor-actionable NOTE is primary (dark, full
+   size). The raw QUOTE becomes a small italic citation below with a
+   link affordance to the transcript. A kind tag leads the note row so
+   the tutor can scan the arc (stumble → recovery) without reading
+   every line. */
+.focusEvidenceNoteRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.focusEvidenceNote {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.96rem;
+  font-weight: 500;
+  line-height: 1.45;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.focusEvidenceCitation {
+  display: block;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-style: italic;
+  line-height: 1.4;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--border-strong);
+  padding-bottom: 2px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+a.focusEvidenceCitation:hover {
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+}
+
+a.focusEvidenceCitation:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Evidence kind tags — stumble / recovery / clean                     */
+/* ------------------------------------------------------------------ */
+
+.evidenceKind {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  flex-shrink: 0;
+}
+
+.evidenceKindStumble {
+  background: rgba(184, 113, 16, 0.12);
+  color: #6b3d05;
+  border-color: rgba(184, 113, 16, 0.28);
+}
+
+.evidenceKindRecovery {
+  background: rgba(22, 122, 72, 0.12);
+  color: #0f6b3f;
+  border-color: rgba(22, 122, 72, 0.28);
+}
+
+.evidenceKindClean {
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  border-color: var(--border-strong);
+}
+
+/* ------------------------------------------------------------------ */
+/* Focus-card labeled context rows: goal                                */
+/* ------------------------------------------------------------------ */
+
+.focusGoal {
+  margin: 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.focusGoalLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.focusGoalText {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.focusInlineMoves {
+  /* Soft yellow to distinguish "things to DO" from the muted-blue
+     evidence block ("things to KNOW"). The warm tone reads as a
+     highlighter without shouting. */
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(253, 224, 71, 0.22);
+  border: 1px solid rgba(161, 98, 7, 0.28);
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.focusInlineMoveLabel {
+  font-weight: 700;
+  color: #713f12;
+  margin-right: 4px;
+}
+
+.warmupType {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.copyPlanWrap {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.copyPlanHelp {
+  margin: 0;
+  flex: 1 1 20ch;
+  min-width: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.copyPlanButton {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-strong);
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.copyPlanButton:hover {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+}
+
+.copyPlanButton:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.copyPlanConfirmation {
+  color: #0f6b3f;
+  font-weight: 600;
+  font-size: 0.84rem;
+}
+
+.copyPlanError {
+  color: #8a2a11;
+  font-weight: 600;
+  font-size: 0.84rem;
+}
+
+.warmupPrompt {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+/* ------------------------------------------------------------------ */
+/* Sub-skill map                                                        */
+/* ------------------------------------------------------------------ */
+
+/* Bucket spacing: .subSkillMapBody uses flex gap for vertical rhythm.
+   Bucket sections inside show a dividing rule above them — except for
+   the first visible child, which butts up against the map body's
+   margin-top. */
+.bucketSection {
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.subSkillMapBody > .bucketSection:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.bucketTitle {
+  /* Title owns bottom spacing to the grid now that the old
+     .bucketHeader wrapper + .bucketDescription have been removed. */
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.bucketCount {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.subSkillGrid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 720px) {
+  .subSkillGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.notYetProbedList {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  display: grid;
+  gap: 4px;
+}
+
+.notYetProbedList li::marker {
+  color: var(--brand);
+}
+
+/* ------------------------------------------------------------------ */
+/* Sub-skill card                                                       */
+/* ------------------------------------------------------------------ */
+
+.subSkillCard {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 10px;
+}
+
+.subSkillHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.subSkillName {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.subSkillStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.confidenceBadgeHigh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 5px;
+  border-radius: 999px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: help;
+}
+
+.confidenceBadgeHighIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--text-muted);
+  color: #ffffff;
+  font-size: 0.66rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.subSkillEvidence {
+  padding-top: 6px;
+}
+
+.confidenceBadgeLow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 5px;
+  border-radius: 999px;
+  background: rgba(184, 113, 16, 0.12);
+  border: 1px solid rgba(184, 113, 16, 0.26);
+  color: #6b3d05;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: help;
+}
+
+.confidenceBadgeLowIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #b87110;
+  color: #ffffff;
+  font-size: 0.66rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* ------------------------------------------------------------------ */
+/* Status chip                                                          */
+/* ------------------------------------------------------------------ */
+
+.statusChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.statusChipSecure {
+  background: rgba(22, 122, 72, 0.12);
+  color: #0f6b3f;
+  border-color: rgba(22, 122, 72, 0.22);
+}
+
+.statusChipDeveloping {
+  background: rgba(184, 113, 16, 0.12);
+  color: #8a5308;
+  border-color: rgba(184, 113, 16, 0.24);
+}
+
+.statusChipNotAssessed {
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  border-color: var(--border-strong);
+}
+
+/* ------------------------------------------------------------------ */
+/* Evidence panel                                                       */
+/* ------------------------------------------------------------------ */
+
+.evidenceList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.evidenceItem {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 6px;
+}
+
+/* Flipped hierarchy: the tutor-actionable NOTE leads (with a kind tag
+   if the analyzer classified the moment), and the raw QUOTE sits below
+   as a citation-style link to the transcript. */
+.evidenceNoteRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.evidenceNote {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.45;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.evidenceQuote {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.4;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--border-strong);
+  padding-bottom: 2px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.evidenceQuote:hover {
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+}
+
+.evidenceQuote:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.evidenceEmpty {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------------ */
+/* Tutor moves                                                          */
+/* ------------------------------------------------------------------ */
+
+.tutorMovesGrid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 720px) {
+  .tutorMovesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tutorMoveSection {
+  display: grid;
+  gap: 6px;
+}
+
+.tutorMoveTitle {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.tutorMoveList {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  display: grid;
+  gap: 6px;
+}
+
+.tutorMoveList li::marker {
+  color: var(--brand);
+}
+
+/* ------------------------------------------------------------------ */
+/* Transcript                                                           */
+/* ------------------------------------------------------------------ */
+
+.transcriptDetails {
+  padding: 0;
+}
+
+.transcriptDetails > .transcriptSummary {
+  padding: 18px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.transcriptDetails > .transcriptSummary::-webkit-details-marker {
+  display: none;
+}
+
+.transcriptDetails > .transcriptSummary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: -2px;
+  background: var(--brand-soft);
+  border-radius: 22px 22px 0 0;
+}
+
+.transcriptSummaryLabel {
+  font-size: 1.12rem;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1 1 auto;
+}
+
+.transcriptSummaryHint {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.transcriptAnchor:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+  background: var(--brand-soft);
+  border-radius: 6px;
+}
+
+.transcriptDetails > .transcriptSummary::before {
+  content: '▸ ';
+  color: var(--brand);
+  margin-right: 6px;
+  transition: transform 0.15s;
+  display: inline-block;
+}
+
+.transcriptDetails[open] > .transcriptSummary::before {
+  transform: rotate(90deg);
+}
+
+.transcriptDetails[open] > .transcriptSummary {
+  border-bottom: 1px solid var(--border);
+}
+
+.transcriptBody {
+  margin: 0;
+  padding: 18px 24px 22px;
+  font-family: 'SFMono-Regular', 'Roboto Mono', 'Menlo', monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text);
+  white-space: pre-wrap;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.transcriptAnchor {
+  display: block;
+  color: var(--brand);
+  font-weight: 700;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+
+.transcriptAnchor:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}

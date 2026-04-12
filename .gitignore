@@ -29,5 +29,11 @@ pnpm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# editor / tooling
+.history/
+.claude/
+.vscode/
+.idea/
+
 # misc
 .DS_Store

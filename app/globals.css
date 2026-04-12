@@ -30,14 +30,11 @@ body {
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.92), transparent 32rem),
     linear-gradient(180deg, #f7f9fc 0%, var(--bg) 48%, #e9eef5 100%);
   color: var(--text);
-  font-family:
-    "Avenir Next",
-    "Segoe UI",
-    sans-serif;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
 }
 
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -55,11 +52,7 @@ select {
 }
 
 code {
-  font-family:
-    "SFMono-Regular",
-    "Roboto Mono",
-    "Menlo",
-    monospace;
+  font-family: 'SFMono-Regular', 'Roboto Mono', 'Menlo', monospace;
 }
 
 .page-shell {
@@ -94,8 +87,7 @@ code {
 
 .shell-card--hero {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 255, 0.94)),
-    var(--surface);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 255, 0.94)), var(--surface);
   border-color: var(--border-strong);
 }
 
@@ -106,20 +98,14 @@ code {
 }
 
 .shell-card h1 {
-  font-family:
-    "Avenir Next",
-    "Segoe UI",
-    sans-serif;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
 .panel h2 {
-  font-family:
-    "Avenir Next",
-    "Segoe UI",
-    sans-serif;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
   font-size: 1.12rem;
   line-height: 1.2;
 }

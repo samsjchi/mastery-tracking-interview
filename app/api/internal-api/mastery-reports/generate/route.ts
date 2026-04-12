@@ -1,5 +1,5 @@
-import { regenerateReport } from "@/lib/store";
-import type { GenerateMasteryRequest, GenerateMasteryResponse } from "@/lib/types";
+import { regenerateReport } from '@/lib/store';
+import type { GenerateMasteryRequest, GenerateMasteryResponse } from '@/lib/types';
 
 export async function POST(request: Request) {
   const body = (await request.json()) as GenerateMasteryRequest;
@@ -7,8 +7,8 @@ export async function POST(request: Request) {
   const nextReport = regenerateReport(body);
   if (!nextReport) {
     return Response.json(
-      { detail: "No seeded tutor/student/session matched the request." },
-      { status: 404 }
+      { detail: 'No seeded tutor/student/session matched the request.' },
+      { status: 404 },
     );
   }
 

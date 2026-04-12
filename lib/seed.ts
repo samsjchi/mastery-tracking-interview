@@ -1,123 +1,117 @@
-import type {
-  CurriculumReference,
-  SessionRecord,
-  StudentProfile,
-  TutorProfile,
-} from "@/lib/types";
+import type { CurriculumReference, SessionRecord, StudentProfile, TutorProfile } from '@/lib/types';
 
 export const seededTutor: TutorProfile = {
-  tutor_id: "2025-t27049",
-  tutor_name: "Sasha Patel",
+  tutor_id: '2025-t27049',
+  tutor_name: 'Sasha Patel',
 };
 
 export const seededStudent: StudentProfile = {
-  student_id: "2025-s12123",
-  student_name: "Mia Rivera",
-  grade_level: "Grade 2",
+  student_id: '2025-s12123',
+  student_name: 'Mia Rivera',
+  grade_level: 'Grade 2',
 };
 
 export const curriculumReference: CurriculumReference = {
   cluster: {
     grade: 2,
-    cluster:
-      "Use place value understanding and properties of operations to add and subtract",
-    priority_level: "Major Work",
+    cluster: 'Use place value understanding and properties of operations to add and subtract',
+    priority_level: 'Major Work',
   },
   sub_skills: [
     {
-      id: "2.NBT.ADD.1",
-      name: "Understand hundreds, tens, and ones as units",
-      description:
-        "Student identifies and represents numbers using base-ten structure.",
+      id: '2.NBT.ADD.1',
+      name: 'Understand hundreds, tens, and ones as units',
+      description: 'Student identifies and represents numbers using base-ten structure.',
     },
     {
-      id: "2.NBT.ADD.2",
-      name: "Compose and decompose numbers",
-      description: "Student breaks numbers into tens and ones.",
+      id: '2.NBT.ADD.2',
+      name: 'Compose and decompose numbers',
+      description: 'Student breaks numbers into tens and ones.',
     },
     {
-      id: "2.NBT.ADD.3",
-      name: "Add within 100 using place value strategies",
-      description: "Student adds by breaking apart tens and ones.",
+      id: '2.NBT.ADD.3',
+      name: 'Add within 100 using place value strategies',
+      description: 'Student adds by breaking apart tens and ones.',
     },
     {
-      id: "2.NBT.ADD.4",
-      name: "Subtract within 100 using place value strategies",
-      description: "Student subtracts using decomposition.",
+      id: '2.NBT.ADD.4',
+      name: 'Subtract within 100 using place value strategies',
+      description: 'Student subtracts using decomposition.',
     },
     {
-      id: "2.NBT.ADD.5",
-      name: "Add within 200 using place value reasoning",
-      description: "Student extends strategies to larger numbers.",
+      id: '2.NBT.ADD.5',
+      name: 'Add within 200 using place value reasoning',
+      description: 'Student extends strategies to larger numbers.',
     },
     {
-      id: "2.NBT.ADD.6",
-      name: "Subtract within 200 with regrouping",
-      description: "Student understands regrouping conceptually.",
+      id: '2.NBT.ADD.6',
+      name: 'Subtract within 200 with regrouping',
+      description: 'Student understands regrouping conceptually.',
     },
     {
-      id: "2.NBT.ADD.7",
-      name: "Explain strategies using place value language",
-      description: "Student justifies reasoning using math language.",
+      id: '2.NBT.ADD.7',
+      name: 'Explain strategies using place value language',
+      description: 'Student justifies reasoning using math language.',
     },
   ],
   problems: [
     {
-      id: "P1",
-      sub_skill: "2.NBT.ADD.3",
-      type: "concrete",
-      prompt: "Use drawings or blocks to solve 34 + 25.",
-      source: "Eureka Math",
+      id: 'P1',
+      sub_skill: '2.NBT.ADD.3',
+      type: 'concrete',
+      prompt: 'Use drawings or blocks to solve 34 + 25.',
+      source: 'Eureka Math',
+      estimated_minutes: 5,
     },
     {
-      id: "P2",
-      sub_skill: "2.NBT.ADD.3",
-      type: "representational",
-      prompt: "34 + 25 = (30 + 20) + (4 + 5).",
-      source: "Illustrative Mathematics",
+      id: 'P2',
+      sub_skill: '2.NBT.ADD.3',
+      type: 'representational',
+      prompt: '34 + 25 = (30 + 20) + (4 + 5).',
+      source: 'Illustrative Mathematics',
+      estimated_minutes: 5,
     },
     {
-      id: "P3",
-      sub_skill: "2.NBT.ADD.3",
-      type: "abstract",
-      prompt: "47 + 36 = ?",
-      source: "Both",
+      id: 'P3',
+      sub_skill: '2.NBT.ADD.3',
+      type: 'abstract',
+      prompt: '47 + 36 = ?',
+      source: 'Both',
+      estimated_minutes: 5,
     },
     {
-      id: "P4",
-      sub_skill: "2.NBT.ADD.3",
-      type: "application",
-      prompt: "A student has 47 stickers and gets 36 more. How many now?",
-      source: "Adapted",
+      id: 'P4',
+      sub_skill: '2.NBT.ADD.3',
+      type: 'application',
+      prompt: 'A student has 47 stickers and gets 36 more. How many now?',
+      source: 'Adapted',
+      estimated_minutes: 8,
     },
   ],
   tutor_moves: {
     common_misconceptions: [
-      "Student concatenates digits (47 + 36 = 713).",
-      "Student adds ones or tens without attending to place value.",
+      'Digits-as-a-single-number confusion.',
+      'Adds ones or tens without attending to place value.',
     ],
     questions_to_ask: [
-      "What is 47 made of?",
-      "How many tens do we have?",
-      "How many ones do we have?",
+      'What is 47 made of?',
+      'How many tens do we have?',
+      'How many ones do we have?',
     ],
-    scaffolds: [
-      "Break numbers into tens and ones.",
-      "Use drawings or base-ten blocks.",
-    ],
+    scaffolds: ['Break each number apart before adding.', 'Use drawings or base-ten blocks.'],
     when_to_advance: [
-      "Student consistently adds using place value correctly.",
-      "Student can explain the strategy in place value language.",
+      'Student consistently adds using place value correctly.',
+      'Student can explain the strategy in place value language.',
     ],
   },
 };
 
 export const seededSession: SessionRecord = {
-  session_id: "session-2025-04-24",
+  session_id: 'session-2025-04-24',
   tutor_id: seededTutor.tutor_id,
   student_id: seededStudent.student_id,
-  session_date: "2025-04-24T16:30:00.000Z",
-  title: "Place value addition check-in",
+  session_date: '2025-04-24T16:30:00.000Z',
+  title: 'Place value addition check-in',
   transcript: `[PROBLEM CHANGE: p1 - "47 + 36 = ?" (start)]
 // Whiteboard shows 47 + 36 with space to break numbers into tens and ones.
 00:04 TUTOR: Try it any way that makes sense to you.
@@ -149,4 +143,3 @@ export const seededSession: SessionRecord = {
 02:18 STUDENT: Because each digit means tens or ones, not just the number by itself.
 02:28 TUTOR: Good. Next time I want you to set that up without my help.`,
 };
-
