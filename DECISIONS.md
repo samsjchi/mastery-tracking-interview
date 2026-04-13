@@ -10,7 +10,7 @@ Tutor-facing briefing. **60 seconds of scanning** must answer: what's shaky, wha
 
 ### Plain-English copy, not math-ed jargon
 
-Every string rewritten for a 19-year-old volunteer. Highest-leverage swaps:
+Every string rewritten for a student volunteer. Highest-leverage swaps:
 
 - Raw Common Core cluster → `"adding 2-digit numbers by place value"` via `PLAIN_CLUSTER_NAME` in [derive.ts](lib/briefing/derive.ts).
 - CPA labels → `With blocks / With a drawing / Numbers only / Word problem`. Ordering still teaches CPA; the letters don't.
