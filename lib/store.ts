@@ -1,10 +1,10 @@
-import { generateMasteryReport } from '@/lib/generator';
-import { curriculumReference, seededSession, seededStudent, seededTutor } from '@/lib/seed';
+import { generateMasteryReport } from "@/lib/generator";
+import { curriculumReference, seededSession, seededStudent, seededTutor } from "@/lib/seed";
 import type {
   DetailedMasteryReport,
   GenerateMasteryRequest,
   LatestMasteryReport,
-} from '@/lib/types';
+} from "@/lib/types";
 
 type ReportState = {
   latest: LatestMasteryReport;
